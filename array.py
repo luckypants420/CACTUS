@@ -1,0 +1,23 @@
+# when dynamic arrays grow theres an overhead where they copy the
+# old array and create more room, and geometric progression is
+# what is happening for new insertions
+
+monthly_expenses = [2200, 2350, 2600, 2130, 2190]
+
+comparing_jan_feb_expenses = monthly_expenses[1] - monthly_expenses[0]
+print("in feb i spent $",comparing_jan_feb_expenses, " more than jan ")
+
+total_expense_1stQuart = monthly_expenses[0] + monthly_expenses[1] + monthly_expenses[2]
+print("total expenses in first quarter is ", total_expense_1stQuart)
+
+if 2000 in monthly_expenses:
+    print("you spent exactly 2000 in a month")
+else:
+    print("there's not a single month where you spent exactly 2000")
+
+monthly_expenses.append(1980)
+print(monthly_expenses)
+
+print("you get a refund of 200 in april")
+monthly_expenses[3] = monthly_expenses[3] - 200
+print(monthly_expenses)
