@@ -10,11 +10,12 @@ def add_person():
     return person
 
 
+people = []
+
 while True:
     command = input(
         "would you like to add, delete, or search for a person?, (enter q to exit!)"
     ).lower()
-    people = []
     if command == "add":
         person = add_person()
         people.append(person)
