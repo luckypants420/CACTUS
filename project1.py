@@ -1,3 +1,6 @@
+import json
+
+
 def add_person():
     name = input("what is your name? ")
     age = input("how old r u ? ")
@@ -12,12 +15,11 @@ def add_person():
 
 def delete_contact(people):
     print("contact list size: ", len(people))
+    display_people(people)
+
     if not people:
         print("contact list is empty")
         return
-
-    for i, person in enumerate(people):
-        print(i + 1, "-", person["name"], "|", person["age"], "|", person["email"])
 
     while True:
         number = input("enter a number to delete: ")
@@ -35,8 +37,28 @@ def delete_contact(people):
 
 # mutable property which means changes to the list will happen everywhere
 
-people = []
 
+def search(people):
+    search_name = input("search for a name").lower()
+    results = []
+
+    for person in people:
+        name = person["name"]
+        if search_name in name.lower():
+            results.append(person)
+
+    display_people(results)
+
+
+def display_people(people):
+    for i, person in enumerate(people):
+        print(i + 1, "-", person["name"], "|", person["age"], "|", person["email"])
+
+
+with open("contacts.json", "r") as f:
+    people = json.load(f)["contacts"]
+
+print("contacts list size: ", len(people))
 while True:
     command = input(
         "would you like to add, delete, or search for a person?, (enter q to exit!)"
@@ -48,10 +70,13 @@ while True:
     elif command == "delete":
         delete_contact(people)
     elif command == "search":
-        pass
+        search(people)
     elif command == "q":
         break
     else:
         print("invalid command")
+
+with open("contacts.json", "w") as f:
+    json.dump({"contacts": people}, f)
 
 print(people)
