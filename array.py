@@ -21,3 +21,21 @@ print(monthly_expenses)
 print("you get a refund of 200 in april")
 monthly_expenses[3] = monthly_expenses[3] - 200
 print(monthly_expenses)
+
+heroes = ["spider-man", "thor", "hulk", "iron man", "captain america"]
+length_of_list = len(heroes)
+print(length_of_list)
+
+heroes.append("black panther")
+print(heroes)
+
+heroes.remove("black panther")
+print(heroes)
+heroes.insert(3,"black panther")
+print(heroes)
+
+heroes[1:3] = ["doctor strange"]
+print(heroes)
+heroes.sort()
+print(heroes)
+
