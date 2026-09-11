@@ -39,3 +39,11 @@ print(heroes)
 heroes.sort()
 print(heroes)
 
+oddNums = []
+
+addNum = int(input("what is the max odd number you would like to add to the list "))
+for i in range(1, addNum):
+    if(i % 2 == 1):
+        oddNums.append(i)
+    
+print(oddNums)
